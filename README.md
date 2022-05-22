@@ -1,1 +1,19 @@
-# 4D-Droplet-Tracking-in-Microscopy-Imaging
+# 4D Droplet Tracking in Microscopy Imaging
+Cancer cells can avoid senescence or apoptosis by maintaining telomere length above the critical threshold by alternative lengthening of telomeres (ALT) or by telomerase. Professor Zhang’s lab @ CMU has speculated that the ALT mechanism results from liquid - liquid phase separated droplets that form at the telomeres. In order to test their new hypothesis that ALT induces rearrangement of chromatin which are related to cancer, it is important for them to be able to quantify telomere clustering from cell microscopy imaging using their chemically-induced dimerization tool. <br>
+
+The questions that the lab would like to answer given the above motivation are how many droplets are there within a cell, are droplets colocalized, what size are the droplets, and how does the volume of droplets change during coalescence. Bioimage analysis techniques are well suited to answer these questions. <br>
+
+I worked alongside two teammembers to devise and implement a method for precise counting of droplets in images provided by Professor Zhang’s lab. I specifically worked on the process of denoising images for further downstream input into a counting algorithm. I used a deep learning method called Cycle Generative Adversarial Network (GAN) to map images from a noisy input domain to a noise free output domain. Cycle GAN is a powerful tool as it does not require a paired image dataset like previous methods and allows us to train Cycle GAN with a synthetic dataset containging the desired features.
+
+## Methods
+###Preprocessing 
+
+Raw images from the training set were first processed by projecting the z - axis onto the x - y plane using the max value across the z - axis for a specific x,y coordinate and was done for each channel separately. Because values contained in the image correspond to intensity of the fluorophore, values were converted to a 0 - 255 scale. 
+
+Cycle GAN
+Cycle GAN is a deep learning method based on the use of two pairs of discriminator(D) and generator networks and is used for image translation between two domains. A single GAN works by training a generator to take in random noise and create an output that the discriminator will label as coming from the training set. The discriminator is trained to distinguish between samples that have come from the original dataset against one that have come from the generator. The generator and discriminator are jointly trained and the result is a generator network that recovers the training data distribution. The networks used in the original paper outlining GAN’s were multilayer perceptrons with the generator outputting vectors in the training data space and the discriminator outputting a scalar value corresponding to the probability of the input coming from the data.
+
+In Cycle GAN the generator network I used was a nine block residual network and the discriminator a 70 x 70 PatchGAN. A generator, discriminator pair are created for image domain A and B separately. The goal is to learn a mapping GA : A → B and GB : B → A so that at inference time given an input image in domain A, we can generate an image that is within the distribution of images from domain B, and vice versa from B to A. Additionally, to constrain the distributions of the generators, Cycle GAN implements a cycle consistency which can be represented as follows GB(GA(X)) ≈ X. The interpretation of this is that given an input image in domain A, the mapping to domain B and again back to domain A should result in an image that is very similar to the original input.
+ 
+The objective function defined by Cycle GAN consists of adversarial loss for each generator, discriminator pair and cycle consistency loss. Adversarial loss can be generalized as the probability that the discriminator identifies a real image as real and the probability that the discriminator identifies a fake image as fake. The true GAN loss function is listed below. 
+
