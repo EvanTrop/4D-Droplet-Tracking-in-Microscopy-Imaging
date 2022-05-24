@@ -1,8 +1,8 @@
 # 4D Droplet Tracking in Microscopy Imaging
 
 ## Contents
-Cycle_GAN_Denoise.ipynb - contains code for training and testing a Cycle GAN model
-pytorch-CycleGAN-and-pix2pix - contains a modified version of the original source code from https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix w/ modifications in train.py , data/image_folder.py , models/cycle_gan_model, and options/base_options.py + optionns/train_options.py
+Cycle_GAN_Denoise.ipynb - contains code for training and testing a Cycle GAN model <br>
+pytorch-CycleGAN-and-pix2pix - contains a modified version of the original source code from https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix w/ modifications in train.py , data/image_folder.py , models/cycle_gan_model, and options/base_options.py + optionns/train_options.py <br>
 Image_Synthesis_Conversion.ipynb - conntains code for generating synthetic data as well as running the connected component algorithm on images
 
 Cancer cells can avoid senescence or apoptosis by maintaining telomere length above the critical threshold by alternative lengthening of telomeres (ALT) or by telomerase. Professor Zhang’s lab @ CMU has speculated that the ALT mechanism results from liquid - liquid phase separated droplets that form at the telomeres. In order to test their new hypothesis that ALT induces rearrangement of chromatin which is related to cancer, it is important for them to be able to quantify telomere clustering from cell microscopy imaging using their chemically-induced dimerization tool. <br>
