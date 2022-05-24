@@ -24,7 +24,7 @@ The next step involved masking pixels corresponding to a nucleus so that each dr
 
 ## Results
 
-Qualitative result showing the output of passing raw images from two different time points through the trained generator networks. <br>
+Qualitative result showing the output of passing raw images from two different time points through the trained generator networks. Left is the raw image, right is the image after being passed through the trained network. <br>
 ![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Raw_Denoise_0.png)
 ![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Raw_Denoise_1.png)
 
