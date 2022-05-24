@@ -23,5 +23,10 @@ The next step involved masking pixels corresponding to a nucleus so that each dr
 
 
 ## Results
+Number of droplets vs time for test data set. Denoised corresponds to raw test images who were run through the trained model and used as input into the connected component algorithm. Calculated corresponds to raw test images who were processed with traditional denoising and enhancing methods. Finally, actual corresponds to manual annotations for number of droplets counted by a lab member.
+
+The graph below is the result from standard Cycle GAN training with 100 training images from GFP channel/100 training images from mCherry channel belonging to image domain A, 200 synthetic images belonging to immage domain B, batch size 4, learning rate .001, and image crop size of 256 x 256.
 ![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Screen%20Shot%202022-05-23%20at%201.06.02%20PM.png)
 
+The graph below is the result of carrying out supervised pretraining before the standard Cycle GAN training. A dataset of 20 paired images was created and supverised training on the generator networks was carried out for 10 epochs before standard Cycle GAN training.
+![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Screen%20Shot%202022-05-23%20at%201.06.11%20PM.png)
