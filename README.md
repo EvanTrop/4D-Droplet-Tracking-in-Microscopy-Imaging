@@ -23,4 +23,4 @@ The next step involved masking pixels corresponding to a nucleus so that each dr
 
 
 ## Results
-![alt text](https://github.com/[EvanTrop]/[4D-Droplet-Tracking-in-Microscopy-Imaging]/blob/[main]/image.jpg?raw=true)
+![alt text](https://github.com/[EvanTrop]/[4D-Droplet-Tracking-in-Microscopy-Imaging]/blob/[main]/Screen Shot 2022-05-23 at 1.06.02 PM.png?raw=true)
