@@ -25,8 +25,8 @@ The next step involved masking pixels corresponding to a nucleus so that each dr
 ## Results
 
 Qualitative result showing the output of passing raw images from two different time points through the trained generator networks. <br>
-![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Screen%20Shot%202022-05-23%20at%201.06.02%20PM.png)
-![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Screen%20Shot%202022-05-23%20at%201.06.02%20PM.png)
+![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Raw_Denoise_0.png)
+![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Raw_Denoise_1.png)
 
 Number of droplets vs time for test data set. Denoised corresponds to raw test images who were run through the trained model and used as input into the connected component algorithm. Calculated corresponds to raw test images who were processed with traditional denoising and enhancing methods. Finally, actual corresponds to manual annotations for number of droplets counted by a lab member.
 
