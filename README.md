@@ -25,8 +25,11 @@ The next step involved masking pixels corresponding to a nucleus so that each dr
 ## Results
 Number of droplets vs time for test data set. Denoised corresponds to raw test images who were run through the trained model and used as input into the connected component algorithm. Calculated corresponds to raw test images who were processed with traditional denoising and enhancing methods. Finally, actual corresponds to manual annotations for number of droplets counted by a lab member.
 
-The graph below is the result from standard Cycle GAN training with 100 training images from GFP channel/100 training images from mCherry channel belonging to image domain A, 200 synthetic images belonging to immage domain B, batch size 4, learning rate .001, and image crop size of 256 x 256.
+The graph below is the result from standard Cycle GAN training with 100 training images from GFP channel/100 training images from mCherry channel belonging to image domain A, 200 synthetic images belonging to immage domain B, batch size 4, learning rate .001, and image crop size of 256 x 256. <br>
 ![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Screen%20Shot%202022-05-23%20at%201.06.02%20PM.png)
 
-The graph below is the result of carrying out supervised pretraining before the standard Cycle GAN training. A dataset of 20 paired images was created and supverised training on the generator networks was carried out for 10 epochs before standard Cycle GAN training.
+The graph below is the result of carrying out supervised pretraining before the standard Cycle GAN training. A dataset of 20 paired images was created and supverised training on the generator networks was carried out for 10 epochs before standard Cycle GAN training.<br>
 ![alt text](https://github.com/EvanTrop/4D-Droplet-Tracking-in-Microscopy-Imaging/blob/main/Screen%20Shot%202022-05-23%20at%201.06.11%20PM.png)
+
+## Discussion
+It appears that both the standard and pretraining Cycle GAN models capture the trend of the number of droplets that is traced by the manual annotations. Both training scenarios show that the learned model is more sensitive and captures a larger number of droplets than the traditional methods. Because the manual annotations are approximatitons and not the true ground truth its hard to say whether false positives are captured. However, since photobleaching occurs in this imaging process, the ability of the annotator to pick up on droplets could be reduced as time progresses. 
